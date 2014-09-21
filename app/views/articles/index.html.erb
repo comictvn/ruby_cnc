@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Image</th>
       <th>Description</th>
       <th>Content</th>
       <th>Active</th>
@@ -16,6 +17,7 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.name %></td>
+        <td><%= article.image_url %></td>
         <td><%= article.description %></td>
         <td><%= article.content %></td>
         <td><%= article.active %></td>

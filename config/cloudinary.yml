@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: cnc
+  api_key: '299677765263421'
+  api_secret: S1UZMua8AEtYEDlOoMHfQeAeEco
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: cnc
+  api_key: '299677765263421'
+  api_secret: S1UZMua8AEtYEDlOoMHfQeAeEco
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: cnc
+  api_key: '299677765263421'
+  api_secret: S1UZMua8AEtYEDlOoMHfQeAeEco
+  enhance_image_tag: true
+  static_image_support: false
