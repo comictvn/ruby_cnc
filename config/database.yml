@@ -62,7 +62,7 @@ development:
 test:
   <<: *default
   database: rails_myapp
-  username: rails_myapp_user
+  username: testuser
   password: pwd
   host: localhost
   port: 5432
@@ -88,9 +88,9 @@ test:
 #
 production:
   <<: *default
-  database: my_application_development
-  username: thisismynewusername
-  password: thisismynewpassword
+  database: cnc_production
+  username: testuser
+  password: test
   host: localhost
   port: 5432
   pool: 10
