@@ -89,8 +89,6 @@ test:
 production:
   <<: *default
   database: my_application_development
-  username: thisismynewusername
-  password: thisismynewpassword
   host: localhost
   port: 5432
   pool: 10
