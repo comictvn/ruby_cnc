@@ -15,10 +15,12 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
+    @categories = Category.all
   end
 
   # GET /categories/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /categories
@@ -65,10 +67,11 @@ class CategoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:name, :content, :parent, :active)
+      params.require(:category).permit(:name, :content, :parent, :active, :alias)
     end
 end

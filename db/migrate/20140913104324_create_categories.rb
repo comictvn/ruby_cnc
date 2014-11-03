@@ -3,7 +3,7 @@ class CreateCategories < ActiveRecord::Migration
     create_table :categories do |t|
       t.string :name
       t.text :content
-      t.integer :parent
+      t.integer :parent, default: 0
       t.string :active
 
       t.timestamps
