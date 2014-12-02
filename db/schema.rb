@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130114509) do
+ActiveRecord::Schema.define(version: 20141201153159) do
 
   create_table "admins", force: true do |t|
     t.datetime "created_at"
@@ -47,11 +47,11 @@ ActiveRecord::Schema.define(version: 20141130114509) do
   create_table "categories", force: true do |t|
     t.string   "name"
     t.text     "content"
-    t.integer  "parent",     default: 0
     t.string   "active"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "alias"
+    t.integer  "parent_id"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -69,5 +69,16 @@ ActiveRecord::Schema.define(version: 20141130114509) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+
+  create_table "templates", force: true do |t|
+    t.string   "name"
+    t.string   "note"
+    t.text     "content"
+    t.string   "designer"
+    t.string   "demo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
+  end
 
 end

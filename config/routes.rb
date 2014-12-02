@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
+  
+
   devise_for :admins
   authenticate :admin do
     namespace :admins do
       mount RailsAdmin::Engine => '/', as: :rails_admin
     end
   end
-  resources :articles
-
-  resources :categories
-
   
+
+  namespace :api, defaults: { format: :json } do
+    resources :articles
+    resources :templates
+    resources :categories
+  end
 
   
   # The priority is based upon order of creation: first created -> highest priority.
