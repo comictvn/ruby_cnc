@@ -5,12 +5,15 @@ class Api::ArticlesController < Api::ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.all.order('id DESC')
+    @ariticles_cate = Article.all.order('id DESC')
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @category = Category.find(@article.category_id)
+    @articles = @category.articles.order(:created_at).limit(5)
   end
 
 

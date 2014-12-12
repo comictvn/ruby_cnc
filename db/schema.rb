@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201153159) do
+ActiveRecord::Schema.define(version: 20141207074050) do
 
   create_table "admins", force: true do |t|
     t.datetime "created_at"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20141201153159) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+    t.string   "tags"
   end
 
   add_index "articles", ["category_id"], name: "index_articles_on_category_id"

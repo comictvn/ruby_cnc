@@ -5,11 +5,9 @@ class Api::TemplatesController < Api::ApplicationController
 
   def index
     @templates = Template.all
-    respond_with(@templates)
   end
 
   def show
-    respond_with(@template)
   end
 
 

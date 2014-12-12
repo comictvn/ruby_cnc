@@ -1,0 +1,6 @@
+development:
+  origin: http://localhost:9000
+test:
+  origin: http://localhost:9000
+production:
+  origin: http://api.webcnc.net:3000

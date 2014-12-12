@@ -45,3 +45,8 @@ gem 'paperclip'
 ### Admin auth
 gem 'devise'
 gem 'rails_admin'
+
+# XMLHttpRequest
+gem 'rack-cors', require: 'rack/cors'
+gem 'rails_admin_flatly_theme', :git => 'git://github.com/konjoot/rails_admin_flatly_theme.git'
+gem 'bootstrap-sass'
