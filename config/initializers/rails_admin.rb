@@ -46,7 +46,9 @@ RailsAdmin.config do |config|
       field :active, :boolean
       field :category
       field :image
-      
+      field :images do
+        orderable true
+      end
       # For RailsAdmin < 0.5.0
       # field :description do
       #   ckeditor true

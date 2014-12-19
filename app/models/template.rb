@@ -1,3 +1,7 @@
 class Template < ActiveRecord::Base
-	mount_uploader :image, ImageUploader
+	
+	has_many :image_templates
+  	has_many :images, through: :image_templates
+  	belongs_to :category_template
+  	mount_uploader :image, ImageUploader
 end

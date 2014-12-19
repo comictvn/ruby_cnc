@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207074050) do
+ActiveRecord::Schema.define(version: 20141212181234) do
 
   create_table "admins", force: true do |t|
     t.datetime "created_at"
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 20141207074050) do
     t.integer  "parent_id"
   end
 
+  create_table "category_templates", force: true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.integer  "parent"
+    t.integer  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
@@ -71,6 +80,46 @@ ActiveRecord::Schema.define(version: 20141207074050) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
+  create_table "image_articles", force: true do |t|
+    t.integer  "article_id"
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "image_articles", ["article_id"], name: "index_image_articles_on_article_id"
+  add_index "image_articles", ["image_id"], name: "index_image_articles_on_image_id"
+
+  create_table "image_templates", force: true do |t|
+    t.integer  "image_id"
+    t.integer  "template_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "image_templates", ["image_id"], name: "index_image_templates_on_image_id"
+  add_index "image_templates", ["template_id"], name: "index_image_templates_on_template_id"
+
+  create_table "images", force: true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rich_rich_files", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "rich_file_file_name"
+    t.string   "rich_file_content_type"
+    t.integer  "rich_file_file_size"
+    t.datetime "rich_file_updated_at"
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.text     "uri_cache"
+    t.string   "simplified_type",        default: "file"
+  end
+
   create_table "templates", force: true do |t|
     t.string   "name"
     t.string   "note"
@@ -80,6 +129,7 @@ ActiveRecord::Schema.define(version: 20141207074050) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+    t.integer  "category_template_id"
   end
 
 end

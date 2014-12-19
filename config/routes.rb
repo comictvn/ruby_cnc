@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  
+
   devise_for :admins
   authenticate :admin do
     namespace :admins do
@@ -13,6 +15,10 @@ Rails.application.routes.draw do
     resources :articles
     resources :templates
     resources :categories
+    resources :category_templates
+    resources :image_templates
+    resources :image_articles
+    resources :images
   end
 
   

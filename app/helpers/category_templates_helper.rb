@@ -1,0 +1,2 @@
+module CategoryTemplatesHelper
+end

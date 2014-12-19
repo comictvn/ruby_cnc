@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category_template.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @category_template.content %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @category_template.parent %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @category_template.active %>
+</p>
+
+<%= link_to 'Edit', edit_category_template_path(@category_template) %> |
+<%= link_to 'Back', category_templates_path %>
