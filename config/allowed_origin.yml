@@ -3,4 +3,4 @@ development:
 test:
   origin: http://localhost:9000
 production:
-  origin: http://api.webcnc.net:5000
+  origin: http://webcnc.net
