@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  
-
-  
 
   devise_for :admins
   authenticate :admin do
@@ -12,6 +9,7 @@ Rails.application.routes.draw do
   
 
   namespace :api, defaults: { format: :json } do
+    post 'auth/facebook', to: 'users#loginFacebook', as: 'login_facebook'
     resources :articles
     resources :templates
     resources :categories
@@ -27,7 +25,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'welcome#index'
   mount Ckeditor::Engine => '/ckeditor'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
