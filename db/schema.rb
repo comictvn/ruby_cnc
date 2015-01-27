@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126165923) do
+ActiveRecord::Schema.define(version: 20150127163344) do
 
   create_table "admins", force: true do |t|
     t.datetime "created_at"
@@ -79,6 +79,12 @@ ActiveRecord::Schema.define(version: 20150126165923) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+
+  create_table "field_websites", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "image_articles", force: true do |t|
     t.integer  "article_id"
@@ -153,5 +159,21 @@ ActiveRecord::Schema.define(version: 20150126165923) do
     t.datetime "oauth_expires_at"
     t.string   "email"
   end
+
+  create_table "websites", force: true do |t|
+    t.string   "storename"
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "address"
+    t.string   "domain"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "field_website_id"
+  end
+
+  add_index "websites", ["field_website_id"], name: "index_websites_on_field_website_id"
+  add_index "websites", ["user_id"], name: "index_websites_on_user_id"
 
 end
