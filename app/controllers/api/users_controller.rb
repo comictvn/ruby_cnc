@@ -1,5 +1,4 @@
 class Api::UsersController < Api::ApplicationController
-  protect_from_forgery with: :null_session
   include Authorize
   before_action :authorize, only: [:show]
 
@@ -24,7 +23,7 @@ class Api::UsersController < Api::ApplicationController
         else
           @user = User.create(uid: hash["id"], email: hash["email"], name: hash["name"], image: hash["image"])
         end
-        @token = Token.create(uid: @user.uid, email: @user.email, expiration_date: Time.now + 1.day)
+        @token = Token.create(uid: @user.uid, email: @user.email, expiration_date: Time.now + 1.day, user_id: @user.id)
       end
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127163344) do
+ActiveRecord::Schema.define(version: 20150204100322) do
 
   create_table "admins", force: true do |t|
     t.datetime "created_at"
@@ -113,19 +113,6 @@ ActiveRecord::Schema.define(version: 20150127163344) do
     t.datetime "updated_at"
   end
 
-  create_table "rich_rich_files", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "rich_file_file_name"
-    t.string   "rich_file_content_type"
-    t.integer  "rich_file_file_size"
-    t.datetime "rich_file_updated_at"
-    t.string   "owner_type"
-    t.integer  "owner_id"
-    t.text     "uri_cache"
-    t.string   "simplified_type",        default: "file"
-  end
-
   create_table "templates", force: true do |t|
     t.string   "name"
     t.string   "note"
@@ -171,9 +158,11 @@ ActiveRecord::Schema.define(version: 20150127163344) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "field_website_id"
+    t.integer  "template_id"
   end
 
   add_index "websites", ["field_website_id"], name: "index_websites_on_field_website_id"
+  add_index "websites", ["template_id"], name: "index_websites_on_template_id"
   add_index "websites", ["user_id"], name: "index_websites_on_user_id"
 
 end

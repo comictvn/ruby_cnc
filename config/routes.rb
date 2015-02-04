@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :image_templates
     resources :image_articles
     resources :images
+    resources :websites
+    resources :field_websites
   end
 
   
