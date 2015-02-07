@@ -45,6 +45,7 @@ RailsAdmin.config do |config|
       field :content, :ck_editor
       field :active, :boolean
       field :category
+      field :tags
       field :image
       field :images do
         orderable true
